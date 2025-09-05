@@ -127,3 +127,20 @@ gcnBtn.addEventListener("click", () => {
     getCityName()
   }
 })
+
+
+// const cityIcon = document.getElementById("cityIcon");
+const hint = document.getElementById("hint");
+
+setInterval(() => {
+  // نمایش متن
+  hint.classList.add("visible");
+  // اجرای انیمیشن روی دکمه
+  // cityIcon.classList.add("shake");
+
+  // بعد از 3 ثانیه متن بره و انیمیشن خاموش شه
+  setTimeout(() => {
+    hint.classList.remove("visible");
+    // cityIcon.classList.remove("shake");
+  }, 300);
+}, 1000); // هر ۶۰ ثانیه
