@@ -1,15 +1,27 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>weather app</title>
-  </head>
-  <body>
-    <main id="app" class="w-screen h-screen  font-myfont bg flex justify-center items-center">
 
-    </main>
-    <script type="module" src="/src/main.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>weather app</title>
+</head>
+
+<body>
+  <main id="app" class="w-screen h-screen  font-myfont bg flex justify-center items-center"></main>
+  <button id="cityIcon" class="absolute top-0 right-0  customBtn text-5xl cursor-pointer">🌆</button>
+  <section id="getCityName"
+    class="w-screen h-screen bg-[rgba(0,0,0,0.7)] absolute top-0 left-0 hidden flex-wrap flex-col gap-[50px] justify-center items-center  text-white">
+    <h2 class="text-3xl font-bold w-full text-center">please inter your city name :</h2>
+    <input type="text" placeholder="London" id="inp" autofocus
+      class="w-3/6 rounded-2xl leading-8 border border-white p-3">
+      <span id="error"></span>
+    <button
+    id="postCityname"
+      class="w-2/12 border rounded-2xl h-12 bg-black hover:bg-white hover:text-black cursor-pointer">click</button>
+  </section>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
 </html>
