@@ -23,7 +23,7 @@ fetch(`https://api.weatherapi.com/v1/forecast.json?key=bc3ec03583794c0f9a4150719
             </div>
             <p class="font-bold text-3xl">${data.location.name}, ${data.location.country}</p>
           </div>
-          <div class="sm:text-[7rem] md:text-9xl border flex justify-center items-center">☁️</div>
+          <div class="sm:text-8xl md:text-9xl border flex justify-center items-center">☁️</div>
         </div>
 
 
