@@ -52,7 +52,7 @@ function getCityName() {
     .then((data) => {
       let x = data.forecast.forecastday[0]
       document.querySelector("#app").innerHTML = `
-      <section class="w-[90%] md:w-[70%] lg:w-[50%] h-11/12 relative rounded-3xl px-6 py-4 bg2 text-white flex flex-wrap justify-center  *:w-full">
+      <section class="w-[90%] md:w-[70%] lg:w-[60%] h-11/12 relative rounded-3xl px-6 py-4 bg2 text-white flex flex-wrap justify-center  *:w-full">
 
         <div class="flex justify-between h-1/4 *:w-[49%] *:h-full  ">
           <div class="flex flex-col justify-between">
