@@ -17,13 +17,13 @@ fetch(`https://api.weatherapi.com/v1/forecast.json?key=bc3ec03583794c0f9a4150719
         <div class="flex justify-between h-1/4 *:w-[49%] *:h-full  ">
           <div class="flex flex-col justify-between">
             <span>${getDayName(x)} ${data.location.localtime}</span>
-            <div class="flex items-center justify-start gap-5 border">
+            <div class="flex items-center justify-start sm:gap-2 md:gap-5 border">
               <img src=${data.current.condition.icon} alt=""  class="w-20 h-20 object-cover">
               <span class="text-3xl font-bold">${data.current.temp_c}°C</span>
             </div>
             <p class="font-bold text-3xl">${data.location.name}, ${data.location.country}</p>
           </div>
-          <div class="sm:text-8xl md:text-9xl border flex justify-center items-center">☁️</div>
+          <div class="text-9xl border flex justify-center items-center">☁️</div>
         </div>
 
 
