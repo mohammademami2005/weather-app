@@ -16,8 +16,8 @@ fetch(`https://api.weatherapi.com/v1/forecast.json?key=bc3ec03583794c0f9a4150719
 
         <div class="flex justify-between h-1/4 *:w-[49%] *:h-full  ">
           <div class="flex flex-col justify-between">
-            <span>${getDayName(x)} ${data.location.localtime}</span>
-            <div class="flex items-center justify-start sm:gap-2 md:gap-5 border">
+            <span><span class="font-bold">${getDayName(x)}</span> ${data.location.localtime}</span>
+            <div class="flex items-center justify-start sm:gap-2 md:gap-5 ">
               <img src=${data.current.condition.icon} alt=""  class="w-20 h-20 object-cover">
               <span class="text-3xl font-bold">${data.current.temp_c}°C</span>
             </div>
@@ -33,7 +33,7 @@ fetch(`https://api.weatherapi.com/v1/forecast.json?key=bc3ec03583794c0f9a4150719
             <span>${data.forecast.forecastday[0].astro.sunrise}</span>
           </div>
           <div>
-            <span class="text-2xl">🌙</span>
+            <span class="text-2xl ">🌙</span>
             <span>${data.forecast.forecastday[0].astro.sunset}</span>
           </div>
         </div>
@@ -51,7 +51,7 @@ fetch(`https://api.weatherapi.com/v1/forecast.json?key=bc3ec03583794c0f9a4150719
             <span>Wind: ${data.current.wind_kph} km/h </span>
           </div>
           
-          <div id="app2" class="flex justify-evenly items-center  *:flex *:flex-col *:justify-center  *:w-1/5 h-full *:h-9/12 *:rounded-2xl *:gap-2 *:text-center "></div>
+          <div id="app2" class="flex justify-evenly items-center  *:flex *:flex-col *:justify-center  *:w-1/5 h-full *:h-11/12 *:rounded-2xl *:gap-2 *:text-center "></div>
         </div>
       </section>
 `
@@ -74,9 +74,9 @@ function crateElement(item) {
 
   const elementsData = [
     { type: "span", content: getDayName(item) },
-    { type: "img", src: item.day.condition.icon, class: "w-15 h-15"},
+    { type: "img", src: item.day.condition.icon, class: "w-full h-10 object-contain"},
     { type: "span", content: item.day.maxtemp_c },
-    { type: "span", content: item.day.mintemp_c },
+    { type: "span", content: item.day.mintemp_c , class: "text-gray-300" },
   ];
 
   elementsData.forEach((el) => {
@@ -88,6 +88,7 @@ function crateElement(item) {
       element.classList.add(...el.class.split(" "));
     } else {
       element.textContent = el.content;
+      element.classList.add(el.class)
     }
 
     colection.appendChild(element);
