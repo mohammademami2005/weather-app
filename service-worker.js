@@ -1,11 +1,10 @@
-const CACHE_NAME = "weather-app-cache-v1";
+const CACHE_NAME = "weather-app-cache-v2";
 const urlsToCache = [
-  "/",
-  "/index.html",
-  "/src/style.css",
-  "/src/main.js",
-  "/logo.svg",
-  "/logo.svg"
+  "./",
+  "./index.html",
+  "./src/style.css",
+  "./src/main.js",
+  "./logo.svg"
 ];
 
 self.addEventListener("install", event => {
@@ -17,21 +16,23 @@ self.addEventListener("install", event => {
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(response => {
-      return response || fetch(event.request);
+      return (
+        response ||
+        fetch(event.request).catch(() => {
+          // fallback به صفحه اصلی برای جلوگیری از 404
+          if (event.request.mode === "navigate") {
+            return caches.match("./index.html");
+          }
+        })
+      );
     })
   );
 });
 
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(keyList =>
-      Promise.all(
-        keyList.map(key => {
-          if (key !== CACHE_NAME) {
-            return caches.delete(key);
-          }
-        })
-      )
+    caches.keys().then(keys =>
+      Promise.all(keys.map(key => key !== CACHE_NAME && caches.delete(key)))
     )
   );
 });
