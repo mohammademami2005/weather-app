@@ -129,18 +129,14 @@ gcnBtn.addEventListener("click", () => {
 })
 
 
-// const cityIcon = document.getElementById("cityIcon");
-const hint = document.getElementById("hint");
 
-setInterval(() => {
-  // نمایش متن
-  hint.classList.add("visible");
-  // اجرای انیمیشن روی دکمه
-  // cityIcon.classList.add("shake");
 
-  // بعد از 3 ثانیه متن بره و انیمیشن خاموش شه
-  setTimeout(() => {
-    hint.classList.remove("visible");
-    // cityIcon.classList.remove("shake");
-  }, 300);
-}, 1000); // هر ۶۰ ثانیه
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("../service-worker.js")
+      .then(() => console.log("Service Worker Registered"))
+      .catch(err => console.log("SW Registration Failed: ", err));
+  });
+}
+
