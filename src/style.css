@@ -2,4 +2,23 @@
 
 @layer base{}
 @layer components{}
-@layer utilities{}
+@layer utilities{
+  .bg{
+    background-image:linear-gradient(135deg, #3a3897 0%, #2c2a72 40%, #1a1a4e 100%),linear-gradient(135deg, #3a3897 0%, #2c2a72 40%, #1a1a4e 100%);
+  }
+  .bg2{
+    background-image: linear-gradient(
+  to bottom right,
+  rgba(126, 34, 206, 0.7),
+  rgba(55, 48, 163, 0.6),
+  rgba(30, 58, 138, 0.7)
+);
+
+  }
+  .dShadow {
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255,1))
+  }
+  .cardbg{
+    background-color: rgba(255, 255, 255, 0.38);
+  }
+}
