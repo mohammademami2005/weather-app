@@ -151,6 +151,40 @@ installBtn.addEventListener("click", async () => {
 });
 
 
+ const btn = document.getElementById("getLocationBtn");
+  const statusEl = document.getElementById("status");
+
+  btn.addEventListener("click", () => {
+    if ("geolocation" in navigator) {
+      statusEl.innerText = "در حال دریافت موقعیت...";
+
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude.toFixed(6);
+          const lon = position.coords.longitude.toFixed(6);
+          statusEl.innerText = `📍 طول: ${lon} | عرض: ${lat}`;
+          console.log("Latitude:", lat, "Longitude:", lon);
+        },
+        (error) => {
+          switch (error.code) {
+            case error.PERMISSION_DENIED:
+              statusEl.innerText = "❌ دسترسی به موقعیت رد شد.";
+              break;
+            case error.POSITION_UNAVAILABLE:
+              statusEl.innerText = "⚠ موقعیت در دسترس نیست.";
+              break;
+            case error.TIMEOUT:
+              statusEl.innerText = "⏱ درخواست موقعیت زمان‌بر شد.";
+              break;
+            default:
+              statusEl.innerText = "❓ خطای ناشناخته.";
+          }
+        }
+      );
+    } else {
+      statusEl.innerText = "مرورگر شما از Geolocation پشتیبانی نمی‌کند.";
+    }
+  });
 
 
 if ("serviceWorker" in navigator) {
