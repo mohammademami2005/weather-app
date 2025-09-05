@@ -91,7 +91,7 @@ function getCityName() {
             <span>Wind: ${data.current.wind_kph} km/h </span>
           </div>
           
-          <div id="app2" class="flex justify-evenly items-center sm:overflow-auto lg:overflow-hidden *:flex *:flex-col *:justify-center  *:sm:w-1/3 *:md:w-1/5 h-full *:h-11/12 *:rounded-2xl *:gap-2 *:text-center "></div>
+          <div id="app2" class="flex justify-between items-center overflow-hidden *:flex *:flex-col *:justify-center   *:w-[23%] h-full *:h-11/12 *:rounded-2xl *:gap-2 *:text-center "></div>
         </div>
       </section>
 
