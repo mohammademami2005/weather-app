@@ -129,6 +129,28 @@ gcnBtn.addEventListener("click", () => {
 })
 
 
+let deferredPrompt;
+const installBtn = document.getElementById("installBtn");
+
+// شنود رویداد نصب
+window.addEventListener("beforeinstallprompt", (e) => {
+  e.preventDefault(); // جلوگیری از نمایش خودکار
+  deferredPrompt = e; // ذخیره برای بعد
+  installBtn.classList.remove("hidden"); // دکمه رو نشون بده
+});
+
+// وقتی روی دکمه کلیک شد
+installBtn.addEventListener("click", async () => {
+  installBtn.classList.add("hidden"); // مخفی کن
+  if (deferredPrompt) {
+    deferredPrompt.prompt(); // نمایش دیالوگ نصب
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`کاربر انتخاب کرد: ${outcome}`);
+    deferredPrompt = null; // پاک کن
+  }
+});
+
+
 
 
 if ("serviceWorker" in navigator) {
