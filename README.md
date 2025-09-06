@@ -25,8 +25,8 @@ Demo: [Show App](https://weather-app-kappa-swart-38.vercel.app/)
 
 ## Screenshots  
 
-![App Screenshot](/screen/screen1.png)  
-![App Screenshot](/screen/screen2.png)  
+![App Screenshot](public/screen/screen1.png)  
+![App Screenshot](public/screen/screen2.png)  
 
 ---
 
